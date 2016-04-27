@@ -54,15 +54,23 @@
               "label": ""
             },
             "properties": {
-              "op1": {
-                "type": "entityKnowledge",
-                "value": "answer.country"
-              },
-              "op2": {
-                "type": "string",
-                "value": "Belgium"
-              },
-              "op": "=="
+              "destination": "weather.id",
+              "op": {
+                "type": "integer",
+                "value": "0"
+              }
+            },
+            "children": [],
+            "id": "bdcb6634-07ce-4631-b59d-12d46a6c45f6",
+            "type": "set"
+          },
+          {
+            "activated": true,
+            "metadata": {
+              "label": ""
+            },
+            "properties": {
+              "active": "true"
             },
             "children": [
               {
@@ -70,94 +78,44 @@
                 "metadata": {
                   "label": ""
                 },
-                "properties": {},
+                "properties": {
+                  "op1": {
+                    "type": "entityKnowledge",
+                    "value": "weather.id"
+                  },
+                  "op2": {
+                    "type": "integer",
+                    "value": "802"
+                  },
+                  "op": "=="
+                },
+                "children": [],
+                "id": "d3f439b9-6279-47ac-bdcf-69a9ce33b3c3",
+                "type": "condition"
+              },
+              {
+                "activated": true,
+                "metadata": {
+                  "label": ""
+                },
+                "properties": {
+                  "op1": {
+                    "type": "entityKnowledge",
+                    "value": "answer.country"
+                  },
+                  "op2": {
+                    "type": "string",
+                    "value": "Belgium"
+                  },
+                  "op": "=="
+                },
                 "children": [
                   {
                     "activated": true,
                     "metadata": {
                       "label": ""
                     },
-                    "properties": {
-                      "name": "GetFirstElement",
-                      "inputParams": [
-                        {
-                          "key": "array",
-                          "type": "entityKnowledge",
-                          "value": "result"
-                        }
-                      ],
-                      "outputParams": [
-                        {
-                          "key": "element",
-                          "type": "entityKnowledge",
-                          "value": "answer"
-                        },
-                        {
-                          "key": "capitals",
-                          "type": "entityKnowledge",
-                          "value": "result"
-                        }
-                      ]
-                    },
-                    "children": [],
-                    "id": "36c7f794-72d5-409f-850b-113cba6eef61",
-                    "type": "action"
-                  },
-                  {
-                    "activated": true,
-                    "metadata": {
-                      "label": ""
-                    },
-                    "properties": {
-                      "name": "Say",
-                      "inputParams": [
-                        {
-                          "key": "message",
-                          "type": "entityKnowledge",
-                          "value": "answer.name"
-                        }
-                      ],
-                      "outputParams": []
-                    },
-                    "children": [],
-                    "id": "78c71af4-efb1-4fc9-a754-e836ebf161dd",
-                    "type": "action"
-                  },
-                  {
-                    "activated": true,
-                    "metadata": {
-                      "label": ""
-                    },
-                    "properties": {
-                      "name": "GetCityWeather",
-                      "inputParams": [
-                        {
-                          "key": "cityName",
-                          "type": "entityKnowledge",
-                          "value": "answer.name"
-                        }
-                      ],
-                      "outputParams": [
-                        {
-                          "key": "weather",
-                          "type": "entityKnowledge",
-                          "value": "weather"
-                        }
-                      ]
-                    },
-                    "children": [],
-                    "id": "330d1011-e19a-4a37-95ce-4f4ab757ad03",
-                    "type": "action"
-                  },
-                  {
-                    "activated": true,
-                    "metadata": {
-                      "label": ""
-                    },
-                    "properties": {
-                      "statusCondition": "failsIfAnyFails",
-                      "retryPolicy": "propagateToRunning"
-                    },
+                    "properties": {},
                     "children": [
                       {
                         "activated": true,
@@ -165,23 +123,29 @@
                           "label": ""
                         },
                         "properties": {
-                          "name": "DisplayCityWeather",
+                          "name": "GetFirstElement",
                           "inputParams": [
                             {
-                              "key": "cityName",
+                              "key": "array",
                               "type": "entityKnowledge",
-                              "value": "answer.name"
-                            },
-                            {
-                              "key": "cityWeather",
-                              "type": "entityKnowledge",
-                              "value": "weather"
+                              "value": "result"
                             }
                           ],
-                          "outputParams": []
+                          "outputParams": [
+                            {
+                              "key": "element",
+                              "type": "entityKnowledge",
+                              "value": "answer"
+                            },
+                            {
+                              "key": "capitals",
+                              "type": "entityKnowledge",
+                              "value": "result"
+                            }
+                          ]
                         },
                         "children": [],
-                        "id": "05dfb7f4-5749-4392-94ab-714a1619a41e",
+                        "id": "36c7f794-72d5-409f-850b-113cba6eef61",
                         "type": "action"
                       },
                       {
@@ -195,26 +159,111 @@
                             {
                               "key": "message",
                               "type": "entityKnowledge",
-                              "value": "weather.description"
+                              "value": "answer.name"
                             }
                           ],
                           "outputParams": []
                         },
                         "children": [],
-                        "id": "4a4568de-82ee-4e63-96e2-76f1da062617",
+                        "id": "78c71af4-efb1-4fc9-a754-e836ebf161dd",
                         "type": "action"
+                      },
+                      {
+                        "activated": true,
+                        "metadata": {
+                          "label": ""
+                        },
+                        "properties": {
+                          "name": "GetCityWeather",
+                          "inputParams": [
+                            {
+                              "key": "cityName",
+                              "type": "entityKnowledge",
+                              "value": "answer.name"
+                            }
+                          ],
+                          "outputParams": [
+                            {
+                              "key": "weather",
+                              "type": "entityKnowledge",
+                              "value": "weather"
+                            }
+                          ]
+                        },
+                        "children": [],
+                        "id": "330d1011-e19a-4a37-95ce-4f4ab757ad03",
+                        "type": "action"
+                      },
+                      {
+                        "activated": true,
+                        "metadata": {
+                          "label": ""
+                        },
+                        "properties": {
+                          "statusCondition": "failsIfAnyFails",
+                          "retryPolicy": "propagateToRunning"
+                        },
+                        "children": [
+                          {
+                            "activated": true,
+                            "metadata": {
+                              "label": ""
+                            },
+                            "properties": {
+                              "name": "DisplayCityWeather",
+                              "inputParams": [
+                                {
+                                  "key": "cityName",
+                                  "type": "entityKnowledge",
+                                  "value": "answer.name"
+                                },
+                                {
+                                  "key": "cityWeather",
+                                  "type": "entityKnowledge",
+                                  "value": "weather"
+                                }
+                              ],
+                              "outputParams": []
+                            },
+                            "children": [],
+                            "id": "05dfb7f4-5749-4392-94ab-714a1619a41e",
+                            "type": "action"
+                          },
+                          {
+                            "activated": true,
+                            "metadata": {
+                              "label": ""
+                            },
+                            "properties": {
+                              "name": "Say",
+                              "inputParams": [
+                                {
+                                  "key": "message",
+                                  "type": "entityKnowledge",
+                                  "value": "weather.description"
+                                }
+                              ],
+                              "outputParams": []
+                            },
+                            "children": [],
+                            "id": "4a4568de-82ee-4e63-96e2-76f1da062617",
+                            "type": "action"
+                          }
+                        ],
+                        "id": "7937be0c-3daa-4ca1-bfb1-547bd6a8f421",
+                        "type": "parallel"
                       }
                     ],
-                    "id": "7937be0c-3daa-4ca1-bfb1-547bd6a8f421",
-                    "type": "parallel"
+                    "id": "86264177-1f7f-4dfe-afc7-369d39415f85",
+                    "type": "sequence"
                   }
                 ],
-                "id": "86264177-1f7f-4dfe-afc7-369d39415f85",
-                "type": "sequence"
+                "id": "8861af7b-412f-47e2-9096-ef470355c2bf",
+                "type": "until"
               }
             ],
-            "id": "8861af7b-412f-47e2-9096-ef470355c2bf",
-            "type": "until"
+            "id": "e0f41122-f213-4a1c-b9c7-bcb9ebde2b6c",
+            "type": "priority"
           },
           {
             "activated": true,
