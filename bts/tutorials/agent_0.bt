@@ -10,7 +10,7 @@
     "properties": {},
     "children": [
       {
-        "activated": true,
+        "activated": false,
         "metadata": {
           "label": ""
         },
@@ -344,6 +344,22 @@
         ],
         "id": "01ad47be-7d1b-4da4-bbbd-5ba810da6a5e",
         "type": "sequence"
+      },
+      {
+        "activated": true,
+        "metadata": {
+          "label": ""
+        },
+        "properties": {
+          "behavior": {
+            "type": "uriPath",
+            "value": "bts/tuto_city_manager.bt"
+          },
+          "inputParams": []
+        },
+        "children": [],
+        "id": "226ac0d3-d6f8-41d4-886c-ecd3ce1bb992",
+        "type": "embedded"
       }
     ],
     "id": "113de595-98ad-44ce-86ac-43a57b73ecae"
