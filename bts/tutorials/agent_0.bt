@@ -55,12 +55,12 @@
             },
             "properties": {
               "op1": {
-                "type": "boolean",
-                "value": "false"
+                "type": "entityKnowledge",
+                "value": "answer.country"
               },
               "op2": {
-                "type": "boolean",
-                "value": "true"
+                "type": "string",
+                "value": "Belgium"
               },
               "op": "=="
             },
@@ -215,6 +215,40 @@
             ],
             "id": "8861af7b-412f-47e2-9096-ef470355c2bf",
             "type": "until"
+          },
+          {
+            "activated": true,
+            "metadata": {
+              "label": ""
+            },
+            "properties": {
+              "name": "Say",
+              "inputParams": [
+                {
+                  "key": "message",
+                  "type": "string",
+                  "value": "Done!"
+                }
+              ],
+              "outputParams": []
+            },
+            "children": [],
+            "id": "da5e757e-a0bd-4875-a218-3ee9a86dbae3",
+            "type": "action"
+          },
+          {
+            "activated": true,
+            "metadata": {
+              "label": ""
+            },
+            "properties": {
+              "name": "Stall",
+              "inputParams": [],
+              "outputParams": []
+            },
+            "children": [],
+            "id": "dda502ff-f21f-4951-a349-b337e5c6b77a",
+            "type": "action"
           }
         ],
         "id": "01ad47be-7d1b-4da4-bbbd-5ba810da6a5e",
