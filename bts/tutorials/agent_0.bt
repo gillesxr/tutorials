@@ -78,19 +78,24 @@
                       "label": ""
                     },
                     "properties": {
-                      "name": "Prompt",
+                      "name": "GetFirstElement",
                       "inputParams": [
                         {
-                          "key": "message",
-                          "type": "string",
-                          "value": "Please enter the message you want to display"
+                          "key": "array",
+                          "type": "entityKnowledge",
+                          "value": "result"
                         }
                       ],
                       "outputParams": [
                         {
-                          "key": "answer",
+                          "key": "element",
                           "type": "entityKnowledge",
                           "value": "answer"
+                        },
+                        {
+                          "key": "capitals",
+                          "type": "entityKnowledge",
+                          "value": "result"
                         }
                       ]
                     },
@@ -129,7 +134,7 @@
                         {
                           "key": "message",
                           "type": "entityKnowledge",
-                          "value": "answer"
+                          "value": "answer.name"
                         }
                       ],
                       "outputParams": []
@@ -149,7 +154,7 @@
                         {
                           "key": "cityName",
                           "type": "entityKnowledge",
-                          "value": "answer"
+                          "value": "answer.name"
                         }
                       ],
                       "outputParams": [
@@ -185,12 +190,12 @@
                             {
                               "key": "cityName",
                               "type": "entityKnowledge",
-                              "value": "answer"
+                              "value": "answer.name"
                             },
                             {
                               "key": "cityWeather",
                               "type": "entityKnowledge",
-                              "value": "weathe"
+                              "value": "weather"
                             }
                           ],
                           "outputParams": []
