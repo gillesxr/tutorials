@@ -22,25 +22,31 @@
               "label": ""
             },
             "properties": {
-              "name": "Prompt",
-              "inputParams": [
-                {
-                  "key": "message",
-                  "type": "string",
-                  "value": "Please enter the message you want to display"
-                }
-              ],
-              "outputParams": [
-                {
-                  "key": "answer",
-                  "type": "entityKnowledge",
-                  "value": "answer"
-                }
-              ]
+              "destination": "result",
+              "op": {
+                "type": "globalKnowledge",
+                "value": "capitals"
+              }
             },
             "children": [],
-            "id": "36c7f794-72d5-409f-850b-113cba6eef61",
-            "type": "action"
+            "id": "4ff59f97-9a56-404c-b067-086f0641b4f2",
+            "type": "set"
+          },
+          {
+            "activated": true,
+            "metadata": {
+              "label": ""
+            },
+            "properties": {
+              "destination": "answer.country",
+              "op": {
+                "type": "string",
+                "value": ""
+              }
+            },
+            "children": [],
+            "id": "a34a449e-837a-48d1-aade-503569dca221",
+            "type": "set"
           },
           {
             "activated": true,
@@ -49,73 +55,14 @@
             },
             "properties": {
               "op1": {
-                "type": "entityKnowledge",
-                "value": "answer"
+                "type": "boolean",
+                "value": "false"
               },
               "op2": {
-                "type": "string",
-                "value": ""
+                "type": "boolean",
+                "value": "true"
               },
-              "op": "!="
-            },
-            "children": [],
-            "id": "cba142ac-4d25-4a8f-9359-f99961c0e581",
-            "type": "condition"
-          },
-          {
-            "activated": true,
-            "metadata": {
-              "label": ""
-            },
-            "properties": {
-              "name": "Say",
-              "inputParams": [
-                {
-                  "key": "message",
-                  "type": "entityKnowledge",
-                  "value": "answer"
-                }
-              ],
-              "outputParams": []
-            },
-            "children": [],
-            "id": "78c71af4-efb1-4fc9-a754-e836ebf161dd",
-            "type": "action"
-          },
-          {
-            "activated": true,
-            "metadata": {
-              "label": ""
-            },
-            "properties": {
-              "name": "GetCityWeather",
-              "inputParams": [
-                {
-                  "key": "cityName",
-                  "type": "entityKnowledge",
-                  "value": "answer"
-                }
-              ],
-              "outputParams": [
-                {
-                  "key": "weather",
-                  "type": "entityKnowledge",
-                  "value": "weather"
-                }
-              ]
-            },
-            "children": [],
-            "id": "330d1011-e19a-4a37-95ce-4f4ab757ad03",
-            "type": "action"
-          },
-          {
-            "activated": true,
-            "metadata": {
-              "label": ""
-            },
-            "properties": {
-              "statusCondition": "failsIfAnyFails",
-              "retryPolicy": "propagateToRunning"
+              "op": "=="
             },
             "children": [
               {
@@ -123,52 +70,169 @@
                 "metadata": {
                   "label": ""
                 },
-                "properties": {
-                  "name": "DisplayCityWeather",
-                  "inputParams": [
-                    {
-                      "key": "cityName",
-                      "type": "entityKnowledge",
-                      "value": "answer"
+                "properties": {},
+                "children": [
+                  {
+                    "activated": true,
+                    "metadata": {
+                      "label": ""
                     },
-                    {
-                      "key": "cityWeather",
-                      "type": "entityKnowledge",
-                      "value": "weathe"
-                    }
-                  ],
-                  "outputParams": []
-                },
-                "children": [],
-                "id": "05dfb7f4-5749-4392-94ab-714a1619a41e",
-                "type": "action"
-              },
-              {
-                "activated": true,
-                "metadata": {
-                  "label": ""
-                },
-                "properties": {
-                  "name": "Say",
-                  "inputParams": [
-                    {
-                      "key": "message",
-                      "type": "entityKnowledge",
-                      "value": "weather.description"
-                    }
-                  ],
-                  "outputParams": []
-                },
-                "children": [],
-                "id": "4a4568de-82ee-4e63-96e2-76f1da062617",
-                "type": "action"
+                    "properties": {
+                      "name": "Prompt",
+                      "inputParams": [
+                        {
+                          "key": "message",
+                          "type": "string",
+                          "value": "Please enter the message you want to display"
+                        }
+                      ],
+                      "outputParams": [
+                        {
+                          "key": "answer",
+                          "type": "entityKnowledge",
+                          "value": "answer"
+                        }
+                      ]
+                    },
+                    "children": [],
+                    "id": "36c7f794-72d5-409f-850b-113cba6eef61",
+                    "type": "action"
+                  },
+                  {
+                    "activated": true,
+                    "metadata": {
+                      "label": ""
+                    },
+                    "properties": {
+                      "op1": {
+                        "type": "entityKnowledge",
+                        "value": "answer"
+                      },
+                      "op2": {
+                        "type": "string",
+                        "value": ""
+                      },
+                      "op": "!="
+                    },
+                    "children": [],
+                    "id": "cba142ac-4d25-4a8f-9359-f99961c0e581",
+                    "type": "condition"
+                  },
+                  {
+                    "activated": true,
+                    "metadata": {
+                      "label": ""
+                    },
+                    "properties": {
+                      "name": "Say",
+                      "inputParams": [
+                        {
+                          "key": "message",
+                          "type": "entityKnowledge",
+                          "value": "answer"
+                        }
+                      ],
+                      "outputParams": []
+                    },
+                    "children": [],
+                    "id": "78c71af4-efb1-4fc9-a754-e836ebf161dd",
+                    "type": "action"
+                  },
+                  {
+                    "activated": true,
+                    "metadata": {
+                      "label": ""
+                    },
+                    "properties": {
+                      "name": "GetCityWeather",
+                      "inputParams": [
+                        {
+                          "key": "cityName",
+                          "type": "entityKnowledge",
+                          "value": "answer"
+                        }
+                      ],
+                      "outputParams": [
+                        {
+                          "key": "weather",
+                          "type": "entityKnowledge",
+                          "value": "weather"
+                        }
+                      ]
+                    },
+                    "children": [],
+                    "id": "330d1011-e19a-4a37-95ce-4f4ab757ad03",
+                    "type": "action"
+                  },
+                  {
+                    "activated": true,
+                    "metadata": {
+                      "label": ""
+                    },
+                    "properties": {
+                      "statusCondition": "failsIfAnyFails",
+                      "retryPolicy": "propagateToRunning"
+                    },
+                    "children": [
+                      {
+                        "activated": true,
+                        "metadata": {
+                          "label": ""
+                        },
+                        "properties": {
+                          "name": "DisplayCityWeather",
+                          "inputParams": [
+                            {
+                              "key": "cityName",
+                              "type": "entityKnowledge",
+                              "value": "answer"
+                            },
+                            {
+                              "key": "cityWeather",
+                              "type": "entityKnowledge",
+                              "value": "weathe"
+                            }
+                          ],
+                          "outputParams": []
+                        },
+                        "children": [],
+                        "id": "05dfb7f4-5749-4392-94ab-714a1619a41e",
+                        "type": "action"
+                      },
+                      {
+                        "activated": true,
+                        "metadata": {
+                          "label": ""
+                        },
+                        "properties": {
+                          "name": "Say",
+                          "inputParams": [
+                            {
+                              "key": "message",
+                              "type": "entityKnowledge",
+                              "value": "weather.description"
+                            }
+                          ],
+                          "outputParams": []
+                        },
+                        "children": [],
+                        "id": "4a4568de-82ee-4e63-96e2-76f1da062617",
+                        "type": "action"
+                      }
+                    ],
+                    "id": "7937be0c-3daa-4ca1-bfb1-547bd6a8f421",
+                    "type": "parallel"
+                  }
+                ],
+                "id": "86264177-1f7f-4dfe-afc7-369d39415f85",
+                "type": "sequence"
               }
             ],
-            "id": "7937be0c-3daa-4ca1-bfb1-547bd6a8f421",
-            "type": "parallel"
+            "id": "8861af7b-412f-47e2-9096-ef470355c2bf",
+            "type": "until"
           }
         ],
-        "id": "86264177-1f7f-4dfe-afc7-369d39415f85",
+        "id": "01ad47be-7d1b-4da4-bbbd-5ba810da6a5e",
         "type": "sequence"
       }
     ],
