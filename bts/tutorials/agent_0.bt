@@ -109,26 +109,6 @@
                       "label": ""
                     },
                     "properties": {
-                      "op1": {
-                        "type": "entityKnowledge",
-                        "value": "answer"
-                      },
-                      "op2": {
-                        "type": "string",
-                        "value": ""
-                      },
-                      "op": "!="
-                    },
-                    "children": [],
-                    "id": "cba142ac-4d25-4a8f-9359-f99961c0e581",
-                    "type": "condition"
-                  },
-                  {
-                    "activated": true,
-                    "metadata": {
-                      "label": ""
-                    },
-                    "properties": {
                       "name": "Say",
                       "inputParams": [
                         {
