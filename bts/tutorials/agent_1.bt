@@ -8,7 +8,30 @@
       "label": ""
     },
     "properties": {},
-    "children": [],
+    "children": [
+      {
+        "activated": true,
+        "metadata": {
+          "label": ""
+        },
+        "properties": {
+          "channel": {
+            "type": "string",
+            "value": "cityMgr"
+          },
+          "inputParams": [
+            {
+              "key": "content",
+              "type": "globalKnowledge",
+              "value": "capitals"
+            }
+          ]
+        },
+        "children": [],
+        "id": "c4d87341-aac7-4077-9e35-6c9c6877fe14",
+        "type": "sendMessage"
+      }
+    ],
     "id": "f3b0054a-eab5-48cd-9a50-135f4e0bcc8b"
   }
 ]
