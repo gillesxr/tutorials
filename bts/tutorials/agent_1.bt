@@ -15,21 +15,15 @@
           "label": ""
         },
         "properties": {
-          "channel": {
-            "type": "string",
-            "value": "cityMgr"
+          "behavior": {
+            "type": "uriPath",
+            "value": "bts/tuto_reddit_manager.bt"
           },
-          "inputParams": [
-            {
-              "key": "content",
-              "type": "globalKnowledge",
-              "value": "capitals"
-            }
-          ]
+          "inputParams": []
         },
         "children": [],
-        "id": "c4d87341-aac7-4077-9e35-6c9c6877fe14",
-        "type": "sendMessage"
+        "id": "082730d9-e753-450e-b873-df04f18b21cb",
+        "type": "embedded"
       }
     ],
     "id": "f3b0054a-eab5-48cd-9a50-135f4e0bcc8b"
