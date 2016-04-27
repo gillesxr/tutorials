@@ -41,7 +41,7 @@
               "destination": "answer.country",
               "op": {
                 "type": "string",
-                "value": ""
+                "value": "\"\""
               }
             },
             "children": [],
